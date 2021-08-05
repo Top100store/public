@@ -14,7 +14,7 @@ var config = {
     username: 'installita',
     repo: 'public',
     branch: 'gh-pages',
-    host: 'https://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.github.com',
+    host: 'https://installita.github.com',
     // Use prefix option if your site is located in a subdirectory.
     // prefix: 'subdirectory',
   },
