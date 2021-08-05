@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+
+<form class="form">
+          <div class="form-item">
+            <label for="name" class="form-item_desc">Фамилия, имя, отчество</label>
+          	<input data-rule="name" type="text" name="name" id="name" placeholder="Константинопольский Константин Константинович">
+          </div>
+          <div class="form-item">
+            <label for="number" class="form-item_desc">Телефон</label>
+          	<input data-rule="phone" type="text" id="phone" name="number" placeholder="+7-952-213-3213">
+          </div>
+          <div class="form-item">
+            <label for="hmail" class="form-item_desc">Email</label>
+            <input data-rule="mail" type="mail" id="mail" name="hmail" placeholder="sample@mail.ru">	
+          </div>
+        </div> <!-- form-left -->
+        <div class="form-right">
+          <button type="submit" id="submit" class="btn" disabled>Отправить заявку</button>
+        </div> <!-- form-right -->
+      </form>
+
+
+      
+<style>
+	
+</style>
+
+
+
+<script>
+let inputs = document.querySelectorAll('input[data-rule]');
+
+  for (let input of inputs) {
+    input.addEventListener('blur', function () {
+      let rule = this.dataset.rule;
+      let value = this.value;
+      let check;
+
+      switch (rule) {
+        case 'name':
+          check = /^[а-яА-ЯёЁa-zA-Z0-9]+$/.test(value);
+        break;
+        case 'phone':
+          check = /^\d+$/.test(value);
+        break;
+        case 'mail':
+          check = /^[-\w.]+@([A-z0-9][-A-z0-9]+\.)+[A-z]{2,4}$/.test(value);
+        break;
+      }
+
+      this.classList.remove('invalid');
+      this.classList.remove('valid');
+      if (check) {
+        this.classList.add('valid');
+      } else {
+        this.classList.add('invalid');
+      }
+    });
+  }
+</script>
+
+</body>
+</html>
